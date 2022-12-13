@@ -192,7 +192,10 @@ class _InputPageState extends State<InputPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ResultsPage()),
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ResultsPage(selectedGender, height, weight, age),
+                ),
               );
             },
             child: Container(
@@ -200,7 +203,7 @@ class _InputPageState extends State<InputPage> {
                 child: Text(
                   'Calculate BMI',
                   style: kNumberTextStyle.copyWith(
-                    fontSize: 40,
+                    fontSize: 30,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
