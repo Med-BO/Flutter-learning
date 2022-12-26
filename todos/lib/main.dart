@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todos/blocs/todos_filter/todos_filter_bloc.dart';
 
 import 'blocs/blocs.dart';
 import 'models/models.dart';
@@ -19,8 +20,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => TodosBloc()
             ..add(
-              LoadTodos(),
+              const LoadTodos(),
             ),
+        ),
+        BlocProvider(
+          create: (context) => TodosFilterBloc(
+            todosBloc: BlocProvider.of<TodosBloc>(context),
+          ),
         ),
       ],
       child: MaterialApp(
